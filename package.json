@@ -1,0 +1,20 @@
+{
+  "name": "hexo-deployer-rsync-permission-fix",
+  "version": "0.0.1",
+  "main": "index",
+  "author": {
+    "name": "Michal 'Migol' Golunski",
+    "email": "migol@migol.net",
+    "homepage": "http://www.migol.net"
+  },
+  "description": "Fix for problems with permissions when deploying Hexo using rsync on Windows.",
+  "license": "MITNFA",
+  "keywords": ["hexo", "plugin", "rsync"],
+  "bugs": {
+    "url": "https://github.com/migol/hexo-deployer-rsync-permission-fix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/migol/hexo-deployer-rsync-permission-fix.git"
+  }
+}
