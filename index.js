@@ -1,11 +1,15 @@
-hexo.on('deployAfter', function(){
+hexo.on('deployAfter', function(err){
   if (hexo.config.deploy.type != 'rsync') {
-    console.log('No permission fix needed');
+    hexo.log.i('No permission fix needed');
     return;
   }
 
+  if (err) {
+    hexo.log.i('Fix will not be applied because of error in deployment.')
+  }
+
   if (!hexo.config.deploy.user || !hexo.config.deploy.host || !hexo.config.deploy.root) {
-    console.error('rsync have been configured inproperly');
+    hexo.log.e('rsync have been configured inproperly');
     return;
   }
 
@@ -17,7 +21,7 @@ hexo.on('deployAfter', function(){
   hexo.util.exec({
     command: 'ssh ' + hexo.config.deploy.user + '@' + hexo.config.deploy.host + portString + ' chmod -R a+rx ' + hexo.config.deploy.root,
     callback: function(){
-      console.log('Permission fix applied.');
+      hexo.log.i('Permission fix applied.');
     }
   });
 });
